@@ -11,28 +11,27 @@ module.exports = {
         filename: 'index.js',
         library: 'reactConditional',
         libraryTarget: 'umd',
-        umdNamedDefine: true
+        umdNamedDefine: true,
     },
     module: {
-        loaders: [
+        rules: [
             {
                 test: /\.js$/,
                 exclude: /node_modules/,
-                loader: 'babel-loader'
+                use: 'babel-loader',
             },
             {
                 test: /\.css$/,
-                loaders: ["style", "css"]
-            }
-        ]
+                use: ['style-loader', 'css-loader'],
+            },
+        ],
     },
-    debug: true,
     devtool: 'source-map',
     externals: {
-        "prop-types": "prop-types",
-        "react": "react",
-        "react-dom": "react-dom",
-        "react-redux": "react-redux",
-        "redux": "redux"
-    }
+        'prop-types': 'prop-types',
+        'react': 'react',
+        'react-dom': 'react-dom',
+        'react-redux': 'react-redux',
+        'redux': 'redux',
+    },
 };
